@@ -1,0 +1,431 @@
+
+body {
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(white 1px, transparent 1.5px), 
+        radial-gradient(white 2px, transparent 2.5px), 
+        radial-gradient(white 1.5px, transparent 2px), 
+        radial-gradient(white 3px, transparent 3.5px);
+
+    background-size: 100px 100px, 200px 200px, 150px 150px, 50px 50px; /* Verschillende afstanden */
+    background-position: 
+        0% 0%, 25% 25%, 50% 50%, 75% 75%; /* Willekeurige posities */
+    /* Vier verschillende lagen dots die onafhankelijk bewegen */
+    background-image: 
+        radial-gradient(rgb(255, 255, 255) 1.4px, transparent 1.5px), /* Eerste laag dots */
+        radial-gradient(white 1.4px, transparent 1.5px), /* Tweede laag dots */
+        radial-gradient(white 1.4px, transparent 1.5px), /* Derde laag dots */
+        radial-gradient(white 1.4px, transparent 1.5px); /* Vierde laag dots */
+    
+    background-size: 
+        400px 400px, /* Grootte eerste laag */
+        500px 500px, /* Grootte tweede laag */
+        300px 300px, /* Grootte derde laag */
+        600px 600px; /* Grootte vierde laag */
+    
+    background-position: 
+        0 0, /* Startpositie eerste laag */
+        0 0, /* Startpositie tweede laag */
+        0 0, /* Startpositie derde laag */
+        0 0; /* Startpositie vierde laag */
+    
+    animation: 
+        moveDots1 15s infinite cubic-bezier(0.42, 0, 0.58, 1), /* Beweging eerste laag met ease-in-out */
+        moveDots2 15s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55), /* Tweede laag met veer-achtig effect */
+        moveDots3 25s infinite cubic-bezier(0.17, 0.67, 0.83, 0.67), /* Derde laag met spring-effect */
+        moveDots4 30s infinite cubic-bezier(0.25, 0.1, 0.25, 1); /* Vierde laag met klassieke ease */
+}
+/* Eerste laag: Beweegt diagonaal naar rechtsboven */
+@keyframes moveDots1 {
+0% { background-position: 0 0; }
+100% { background-position: 500px -500px; }
+}
+
+/* Tweede laag: Beweegt diagonaal naar linksonder */
+@keyframes moveDots2 {
+0% { background-position: 0 0; }
+100% { background-position: -400px 400px; }
+}
+
+/* Derde laag: Beweegt naar rechts */
+@keyframes moveDots3 {
+0% { background-position: 0 0; }
+100% { background-position: 600px 0; }
+}
+
+/* Vierde laag: Beweegt naar boven */
+@keyframes moveDots4 {
+0% { background-position: 0 0; }
+100% { background-position: 0 -600px; }
+}
+.navbalk {
+    border-top: 3px solid #a964f3;
+    border-bottom: 3px solid #a964f3;
+    display: flex;
+    justify-content:center; /* Zorgt voor ruimte tussen logo en links */
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    color: white;
+}
+
+.navbalk img {
+    height: 40px; /* Hoogte van het logo */
+    margin-right: 10px; /* Ruimte tussen logo en tekst */
+}
+
+.toggle-button {
+    display: none; /* Verborgen op grotere schermen */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px; /* Grootte van de hamburger icoon */
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex; /* Standaard in een rij */
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Verberg de links op kleine schermen */
+        flex-direction: column; /* Stapel de links verticaal */
+        width: 100%; /* Volledige breedte voor de dropdown */
+        background-color: #333; /* Achtergrondkleur voor het dropdown menu */
+        position: absolute; /* Voor overlappen boven de rest van de pagina */
+        top: 100%; /* Plaats het menu net onder de navbalk */
+        left: 0; /* Zorg ervoor dat het menu begint aan de linkerkant */
+    }
+
+    .nav-links.active {
+        display: flex; /* Laat het menu zien als actief */
+    }
+
+    .toggle-button {
+        display: block; /* Toon de hamburger icoon op kleine schermen */
+    }
+}
+
+.image-container {
+    position: absolute;
+    top: 20%; /* Pas dit aan afhankelijk van waar je de afbeelding wilt */
+    right: 15%; /* Afstand van de rechterkant */
+    z-index: 10;
+}
+
+.image-container img {
+    max-width: 500px; /* Pas de breedte aan zoals gewenst */
+    height: 400px; /* Houd de verhouding van de afbeelding */
+    border-radius: 5%;
+    border: solid;
+}
+
+.image-container-home {
+    margin-left: 50px;
+    justify-content: space-evenly;
+    display: flex;  
+    align-items: left;
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap; /* Zorg ervoor dat afbeeldingen onder elkaar vallen op kleine schermen */
+
+}
+
+.image-container-home img {
+    max-width: 500px; /* Pas de breedte aan zoals gewenst */
+    height: 400px; /* Houd de verhouding van de afbeelding */
+    border-radius: 5%;
+    border: solid;
+}
+
+.vak{
+
+    position: relative;
+}
+/* dit is de kleur van menubalk */
+.vak a{
+    color: white;
+}
+
+
+/* dit is die hover kleur */
+.vak:hover{
+
+    text-decoration: none; 
+    border: none; 
+    padding: 12px 40px; 
+    font-size: 16px; 
+    background-color: rgb(255, 0, 0); 
+    color: #ffffff; 
+    border-radius: 5px; 
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    cursor: pointer; 
+    outline: none; 
+    transition: 0.9s all;
+    
+}
+/* dit is voor menubalk positie */
+nav ul {
+
+    list-style-type: none;
+    font-size: 1.25;
+    display: flex;
+    justify-content: center;
+    margin: 0 1rem;
+}
+/* dit is voor tussen de listen van menubalk */
+nav li {
+  padding: 1em;
+  color: white;
+}
+
+.explore-button {
+    position: relative;
+    top: 0px; /* Verplaatst de knop 10 pixels naar beneden */
+    left: 200px; /* Verplaatst de knop 20 pixels naar rechts */
+    border-radius: 5px; 
+    background-color: #1d9c1d; /* Groene achtergrond */
+    color: white; /* Witte tekst */
+    border: none; /* Geen rand */
+    padding: 10px 20px; /* Ruimte binnen de knop */
+    font-size: 1.5em; /* Grootte van de knoptekst */
+    cursor: pointer; /* Verander de cursor naar een pointer */
+    transition: background-color 0.3s; /* Voor een soepele overgang */
+}
+.explore-button:hover {
+    background-color: #45a049; /* Donkerder groen bij hover */
+}
+.white {
+    color: #ffffff;
+}
+.black{
+    columns: black;
+}
+.flex-container {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  
+.flex-item {
+    min-width: 400px;
+    color: white;
+    padding: 10px;
+    flex: 1;
+    
+  }
+
+.containerlinks {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    opacity: 70%;
+    color: white;
+    
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.link-item {
+    text-align: center;
+}
+
+.link-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.link-item p {
+    margin: 10px 0 5px;
+}
+
+.link-item a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.link-item a:hover {
+    text-decoration: underline;
+}
+
+.sectie {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centreert items horizontaal */
+    justify-content: center; /* Centreert items verticaal */
+}
+
+.sectie img {
+    max-width: 400px;
+    max-height: 400px;
+    border: 5px solid #000; /* Voeg een border toe als dat gewenst is */
+    border-radius: 15px;
+    margin: 20px 0; /* Voeg wat ruimte boven en onder de afbeelding toe */
+}
+
+.section {
+    flex: 1;
+    margin-bottom: 150px;
+   
+}
+.section-items{
+    background-color: rgba(128, 128, 128, 0.301);
+    padding-bottom: 50px;
+}
+
+.images {
+
+    display: flex;
+    gap: 20px; /* Ruimte tussen de afbeeldingen */
+    margin-top: 200px;
+}
+
+.images img {
+    width: 30%; /* Drie afbeeldingen naast elkaar */
+    height: 200px; /* Houd de verhoudingen van de afbeelding */
+    border-radius: 5px;
+}
+
+.skills {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-left {
+    flex: 1;
+}
+
+.skills-right {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.skill-bar {
+    margin: 10px 0;
+}
+
+.bar {
+    background-color: #f60000;
+    border-radius: 5px;
+    width: 100%;
+    height: 20px;
+}
+
+.progress {
+    background-color: #4caf50;
+    height: 100%;
+    border-radius: 5px;
+    
+}
+
+.containercontact {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    
+    text-align: center;
+}
+
+.form-group {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+input[type="text"],
+input[type="email"],
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.footer {
+   
+    padding: 20px;
+    border-top: 3px solid #a964f3; /* Bovenborder met de gewenste kleur */
+    border-bottom: 3px solid #a964f3; /* Bovenborder met de gewenste kleur */
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+.footer p{
+    color: white;
+    font-size: large;
+}
+
+.social-icon {
+    margin-left: 15px; /* Ruimte tussen iconen */
+}
+
+.social-icon img {
+    width: 40px; /* Pas de grootte van de iconen aan */
+    height: 40px;
+}
+
+
+.medium-foto {
+    max-width: 200px;
+    border-radius: 10px;
+}
+.carousel-item h2{
+    text-align: center;
+
+}
+#hobbyCarousel .carousel-item img {
+    height: 400px; /* Houd de hoogte vast */
+    width: 100%; /* Zorg dat de breedte 100% is */
+    object-fit: contain; /* Zorg ervoor dat de hele afbeelding zichtbaar blijft */
+}
+.carousel-caption {
+    background-color: rgba(128, 128, 128, 0.7); /* Grijs met transparantie */
+    padding: 10px; /* Voeg wat padding toe voor betere leesbaarheid */
+    border-radius: 5px; /* Optionele afgeronde hoeken */
+}

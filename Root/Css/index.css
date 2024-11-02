@@ -1,0 +1,43 @@
+/* Voeg dit toe aan je stylesheet of in een <style> tag in de <head> sectie */
+.jumbotron {
+    text-align: center;
+    padding: 2rem 1rem; /* Zorg voor meer ruimte op mobiele apparaten */
+}
+
+.card {
+    margin-bottom: 20px; /* Meer ruimte tussen de kaarten */
+}
+
+.card img {
+    max-height: 200px; /* Beperk de hoogte van de afbeeldingen in de kaarten */
+    object-fit: cover; /* Zorg ervoor dat de afbeelding goed wordt bijgesneden */
+}
+
+.footer {
+    text-align: center; /* Centreer de footer-inhoud */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column; /* Zorg ervoor dat knoppen onder elkaar staan op mobiele apparaten */
+    align-items: flex-start;
+}
+
+.explore-button {
+    margin: 10px 0; /* Voeg marge toe voor betere ruimte tussen knoppen */
+}
+
+.header img {
+    height: 40px; /* Hoogte van het logo */
+    margin-right: 10px; /* Ruimte tussen logo en tekst */
+}
+.header {
+    display: flex;
+    align-items: center;
+    color: #ffffffdf;
+    border-top: 3px solid #a964f3;
+    border-bottom: 3px solid #a964f3;
+    padding: 10px 0; /* Ruimte boven en onder de tekst */
+    margin-bottom: 20px; /* Ruimte boven de H1 */
+
+}
